@@ -42,7 +42,7 @@ function Board() {
             <div className="board-row">
                 {renderSquare(6)}{renderSquare(7)}{renderSquare(8)}
             </div>
-            <button onClick={() => {
+            <button className="restart-button" onClick={() => {
                 setSquares(Array(9).fill(null));
                 setXIsNext(true);
             }}>Restart Game</button>

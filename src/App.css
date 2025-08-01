@@ -1,14 +1,25 @@
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .App {
   text-align: center;
   margin-top: 50px;
-  background-color: #6e25c7;
-
 }
 
-.square {
-  width: 60px;
-  height: 60px;
-  font-size: 2rem;
+h1 {
+    font-size: 3rem;
+    color: #61dafb;
+    text-shadow: 0 0 10px #61dafb, 0 0 20px #61dafb, 0 0 30px #61dafb, 0 0 40px #61dafb;
+}
+
+.status {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #61dafb;
 }
 
 .board-row {
@@ -16,7 +27,45 @@
   justify-content: center;
 }
 
-.status {
-  margin-bottom: 10px;
-  font-weight: 600;
+.square {
+  width: 100px;
+  height: 100px;
+  background: #1f1f1f;
+  border: 2px solid #61dafb;
+  color: #61dafb;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  margin: 2px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #61dafb, 0 0 10px #61dafb inset;
+}
+
+.square:hover {
+  background: #61dafb;
+  color: #1a1a1a;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px #61dafb;
+}
+
+.restart-button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 20px #ffffff;
 }
