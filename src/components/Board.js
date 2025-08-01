@@ -26,6 +26,8 @@ function Board() {
         status = "Winner: " + winner;
     } else if (squares.every(Boolean)) {
         status = "Draw!";
+    } else if (squares.every(square => square === null)){
+        status = "First Move: X"
     } else {
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
