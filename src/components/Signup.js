@@ -21,11 +21,20 @@ function Signup() {
   }
 
   return (
-    <form onSubmit={handleSignup}>
-      <input value={username} onChange={e=>setUsername(e.target.value)} placeholder='Username' />
-      <input value={password} type="password" onChange={e=>setPassword(e.target.value)} placeholder='Password' />
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className="signup-container">
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSignup}>
+        <div className="input-group">
+          <label>Username</label>
+          <input value={username} onChange={e => setUsername(e.target.value)} />
+        </div>
+        <div className="input-group">
+          <label>Password</label>
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        </div>
+        <button type="submit" className="signup-btn">Sign Up</button>
+      </form>
+    </div>
   );
 }
 export default Signup
