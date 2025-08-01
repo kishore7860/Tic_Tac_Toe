@@ -22,11 +22,20 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <input value={username} onChange={e=>setUsername(e.target.value)} placeholder='Username' />
-      <input value={password} type="password" onChange={e=>setPassword(e.target.value)} placeholder='Password' />
-      <button type="submit">Login</button>
-    </form>
+    div className="login-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <div className="input-group">
+          <label>Username</label>
+          <input value={username} onChange={e => setUsername(e.target.value)} />
+        </div>
+        <div className="input-group">
+          <label>Password</label>
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        </div>
+        <button type="submit" className="login-btn">Login</button>
+      </form>
+    </div>
   );
 }
 export default Login
