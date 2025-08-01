@@ -8,11 +8,15 @@ body {
   text-align: center;
   margin-top: 50px;
 }
+.Board {
+  text-align: center;
+  margin-top: 50px;
+}
 
 h1 {
     font-size: 3rem;
     color: #61dafb;
-    text-shadow: 0 0 10px #61dafb, 0 0 20px #61dafb, 0 0 30px #61dafb, 0 0 40px #61dafb;
+    text-shadow: 0 0 2px #61dafb, 0 0 2px #61dafb, 0 0 2px #61dafb, 0 0 2px #61dafb;
 }
 
 .status {
@@ -54,6 +58,7 @@ h1 {
 .restart-button {
     margin-top: 20px;
     padding: 10px 20px;
+    text-align: center;
     font-size: 1rem;
     font-weight: 600;
     color: #1a1a1a;

@@ -31,7 +31,8 @@ function Board() {
     }
 
     return (
-        <div>
+        <div className="Board">
+            <h1>Tic Tac Toe</h1>
             <div className="status">{status}</div>
             <div className="board-row">
                 {renderSquare(0)}{renderSquare(1)}{renderSquare(2)}
