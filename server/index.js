@@ -37,7 +37,7 @@ app.post('/signup', async (req, res) => {
     const hashed = await bcrypt.hash(password, 10);
     await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, hashed]);
 
-    res.json({ message: 'Signup successful' });
+    res.json({ message: 'Signup successful' , token, username});
 
   } catch (err) {
     console.error(err);
@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
     if (!match) return res.status(400).json({ message: 'Invalid username or password' });
 
     const token = jwt.sign({ username }, SECRET, { expiresIn: '1h' });
-    res.json({ token });
+    res.json({ token, username });
 
   } catch (err) {
     console.error(err);

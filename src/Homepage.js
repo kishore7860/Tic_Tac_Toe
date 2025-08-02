@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './context/AuthContext';
 import './components/Board';
 import './Homepage.css';
 
 function Homepage() {
+  const { auth, logout } = useContext(AuthContext);
 
   return (
     <div className="homepage-container">
       <header className="homepage-header">
         <div className="logo">Tic-Tac-Toe</div>
         <nav className="nav-actions">
-          <Link to="/login" className="nav-link">Login</Link>
-          <Link to="/signup" className="nav-link">Sign Up</Link>
+          {auth.isAuthenticated ? (
+            <>
+              <span className="nav-link">Hello, {auth.username}</span>
+              <button onClick={logout} className="nav-link">Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="nav-link">Login</Link>
+              <Link to="/signup" className="nav-link">Sign Up</Link>
+            </>
+          )}
         </nav>
       </header>
 

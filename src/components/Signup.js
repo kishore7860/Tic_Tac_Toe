@@ -18,7 +18,7 @@ function Signup() {
     });
     const data = await res.json();
     if (res.ok) {
-      login(data.token); // Optional: You can auto-login
+      login(data.token);
       navigate('/');
     } else {
       alert(data.message);
