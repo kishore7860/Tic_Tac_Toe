@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import './login.css';
 
 function Login() {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,16 +18,15 @@ function Login() {
     });
     const data = await res.json();
     if (res.ok) {
-      localStorage.setItem('token', data.token);
-      alert('Login successful!');
-      // set auth context, redirect, etc.
+      login(data.token, data.username);
+      navigate('/');
     } else {
       alert(data.message);
     }
   }
 
   return (
-    div className="login-container">
+    <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div className="input-group">
@@ -38,4 +42,5 @@ function Login() {
     </div>
   );
 }
-export default Login
+
+export default Login;

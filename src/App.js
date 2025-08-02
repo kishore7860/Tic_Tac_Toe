@@ -1,23 +1,23 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Homepage from "./Homepage";
-import Board from "./components/Board";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Homepage from './Homepage';
 import Login from './components/login';
 import Signup from './components/Signup';
+import Board from './components/Board';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/game" element={<Board />} />
-        <Route path="/leaderboard" element={<div>Leaderboard Coming Soon</div>} />
-        <Route path="/multiplayer" element={<div>Multiplayer Coming Soon</div>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/quit" element={<div>Thanks for playing!</div>} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/game" element={<Board />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

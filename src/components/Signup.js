@@ -1,10 +1,14 @@
-import { useState } from "react";
-
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import './signup.css';
 
 function Signup() {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
+
   async function handleSignup(e) {
     e.preventDefault();
     const res = await fetch('http://localhost:4000/signup', {
@@ -14,7 +18,8 @@ function Signup() {
     });
     const data = await res.json();
     if (res.ok) {
-      alert('Signup successful!');
+      login(data.token); // Optional: You can auto-login
+      navigate('/');
     } else {
       alert(data.message);
     }
@@ -37,4 +42,5 @@ function Signup() {
     </div>
   );
 }
-export default Signup
+
+export default Signup;
